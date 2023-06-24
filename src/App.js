@@ -39,13 +39,13 @@ function App() {
       </div>)}
       {
         products.length > 0 && <div className='pagination'>
-          <span onClick={() => selectPageHandler(page-1)}>⬅️</span>
+          <span className={page === 1? 'pagination__hide': ''} onClick={() => selectPageHandler(page-1)}>⬅️</span>
           {
             [...Array(products.length/10)].map((_,i) => {
               return <span className={page=== i+1? "pagination__seleted":""} onClick={() => selectPageHandler(i+1)} key={i}>{i+1}</span>
             })
           }
-          <span onClick={() => selectPageHandler(page+1)}>➡️</span>
+          <span className={page === products.length/10 ? 'pagination__hide': ''} onClick={() => selectPageHandler(page+1)}>➡️</span>
         </div>
       }
     </div>
